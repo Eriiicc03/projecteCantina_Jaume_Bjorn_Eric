@@ -16,9 +16,10 @@ $paginaActual = basename($_SERVER['PHP_SELF']);
 <body>
     <header>
         <a href="/index.php" class="marca">
-            <img src="/img/logo.png" alt="Logo de La Cantina" class="logo">
+            <!--<img src="/img/logo.png" alt="Logo de La Cantina" class="logo">-->
             <span class="nom-lloc">La Cantina</span>
         </a>
+        <button id="burgerBtn">☰</button>
         <nav>
             <ul class="menu">
                 <li><a href="/compra.php" class="<?= $paginaActual === 'compra.php' ? 'actiu' : '' ?>">Compra</a></li>

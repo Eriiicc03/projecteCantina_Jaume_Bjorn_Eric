@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "nom": "Croissant",
+    "descripcio": "Croissant artesanal de mantega, acabat de fornejar.",
+    "preu": 1.80,
+    "categoria": "Brioixeria",
+    "franja": "esmorzar",
+    "imagen": "assets/img/croissant.jpg",
+    "oferta": false
+  },
+  {
+    "id": 2,
+    "nom": "Cafè",
+    "descripcio": "Cafè espresso intens.",
+    "preu": 1.60,
+    "categoria": "Begudes",
+    "franja": "esmorzar",
+    "imagen": "assets/img/cafe.jpg",
+    "oferta": false
+  },
+  {
+    "id": 3,
+    "nom": "Entrepà de pernil salat",
+    "descripcio": "Pa cruixent amb pernil salat de qualitat.",
+    "preu": 3.50,
+    "categoria": "Entrepans",
+    "franja": "esmorzar",
+    "imagen": "assets/img/entrepa-pernil.jpg",
+    "oferta": true
+  },
+  {
+    "id": 4,
+    "nom": "Torrades amb tomàquet i alvocat",
+    "descripcio": "Pa de pagès torrat amb tomàquet natural, alvocat i oli d'oliva verge extra.",
+    "preu": 2.80,
+    "categoria": "Torrades",
+    "franja": "esmorzar",
+    "imagen": "assets/img/torrades-alvocat.jpg",
+    "oferta": false
+  },
+  {
+    "id": 5,
+    "nom": "Suc de taronja natural",
+    "descripcio": "Suc de taronja acabat d'esprémer.",
+    "preu": 2.50,
+    "categoria": "Begudes",
+    "franja": "esmorzar",
+    "imagen": "assets/img/suc-taronja.jpg",
+    "oferta": false
+  },
+  {
+    "id": 6,
+    "nom": "Hamburguesa 1€ McDonalds",
+    "descripcio": "Hamburguesa de vedella amb formatge, enciam, tomàquet.",
+    "preu": 1.00,
+    "categoria": "Plats principals",
+    "franja": "dinar",
+    "imagen": "assets/img/hamburguesa.jpg",
+    "oferta": false
+  },
+  {
+    "id": 7,
+    "nom": "Pizza de Nutella",
+    "descripcio": "Pizza artesanal dolça amb crema d'avellanes.",
+    "preu": 6.50,
+    "categoria": "Postres",
+    "franja": "dinar",
+    "imagen": "assets/img/pizza-nutella.jpg",
+    "oferta": false
+  },
+  {
+    "id": 8,
+    "nom": "Amanida Cèsar",
+    "descripcio": "Amanida fresca amb enciam, pollastre cruixent, crostons i salsa cèsar.",
+    "preu": 7.80,
+    "categoria": "Amanides",
+    "franja": "dinar",
+    "imagen": "assets/img/amanida-cesar.jpg",
+    "oferta": false
+  },
+  {
+    "id": 9,
+    "nom": "Macarrons a la bolonyesa",
+    "descripcio": "Macarrons amb salsa bolonyesa casolana i formatge ratllat.",
+    "preu": 8.90,
+    "categoria": "Pasta",
+    "franja": "dinar",
+    "imagen": "assets/img/macarrons.jpg",
+    "oferta": true
+  },
+  {
+    "id": 10,
+    "nom": "Nuggets de pollastre",
+    "descripcio": "Nuggets de pollastre cruixents acompanyats de patates fregides.",
+    "preu": 7.50,
+    "categoria": "Plats principals",
+    "franja": "dinar",
+    "imagen": "assets/img/nuggets.jpg",
+    "oferta": false
+  },
+  {
+    "id": 11,
+    "nom": "Crep farcit de fastucs",
+    "descripcio": "Crep farcit de una crema natural de fastucs.",
+    "preu": 4.50,
+    "categoria": "Salats",
+    "franja": "berenar",
+    "imagen": "assets/img/crep-salada.jpg",
+    "oferta": true
+  },
+  {
+    "id": 12,
+    "nom": "Smothies",
+    "descripcio": "Batut cremós a eleccio del client.",
+    "preu": 3.80,
+    "categoria": "Begudes",
+    "franja": "berenar",
+    "imagen": "assets/img/smoothie.jpg",
+    "oferta": false
+  },
+  {
+    "id": 13,
+    "nom": "Dònut de xocolata",
+    "descripcio": "Dònut esponjós recobert de xocolata fondant.",
+    "preu": 2.20,
+    "categoria": "Brioixeria",
+    "franja": "berenar",
+    "imagen": "assets/img/donut.jpg",
+    "oferta": false
+  },
+  {
+    "id": 14,
+    "nom": "Gelat a gust del client",
+    "descripcio": "Gelat cremós a gust del client.",
+    "preu": 3.50,
+    "categoria": "Gelats",
+    "franja": "berenar",
+    "imagen": "assets/img/gelat-vainilla.jpg",
+    "oferta": true
+  },
+  {
+    "id": 15,
+    "nom": "Canelons de la iaia",
+    "descripcio": "Pasta farcida de carn tradicional i beixamel.",
+    "preu": 8.80,
+    "categoria": "Pasta",
+    "franja": "dinar",
+    "imagen": "assets/img/canelons.jpg",
+    "oferta": false
+  }
+]

@@ -8,14 +8,15 @@ $paginaActual = basename($_SERVER['PHP_SELF']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Cantina</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="icon" type="image/png" href="/assets/img/logo.png">
+    <link rel="icon" type="image/png" href="/img/logo.png">
+    <script type="module" src="http://localhost:5173/@vite/client"></script>
+    <script type="module" src="http://localhost:5173/src/assets/js/main.js"></script>
 </head>
 
 <body>
     <header>
         <a href="/index.php" class="marca">
-            <img src="/assets/img/logo.png" alt="Logo de La Cantina" class="logo">
+            <img src="/img/logo.png" alt="Logo de La Cantina" class="logo">
             <span class="nom-lloc">La Cantina</span>
         </a>
         <nav>

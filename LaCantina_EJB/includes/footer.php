@@ -3,7 +3,7 @@
     <footer class="peu">
         <div class="peu-contingut">
             <div class="peu-marca">
-                <img src="/assets/img/logo.png" alt="" class="peu-logo">
+                <img src="/img/logo.png" alt="" class="peu-logo">
                 <span>La Cantina</span>
             </div>
 

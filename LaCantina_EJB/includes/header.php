@@ -16,7 +16,11 @@ $paginaActual = basename($_SERVER['PHP_SELF']);
 <body>
     <header>
         <a href="/index.php" class="marca">
+<<<<<<< HEAD
             <!--<img src="/img/logo.png" alt="Logo de La Cantina" class="logo">-->
+=======
+           <!-- <img src="/img/logo.png" alt="Logo de La Cantina" class="logo"> -->
+>>>>>>> 7c13fd9b529792e1df54330476e5f97fd852e8f7
             <span class="nom-lloc">La Cantina</span>
         </a>
         <button id="burgerBtn">☰</button>

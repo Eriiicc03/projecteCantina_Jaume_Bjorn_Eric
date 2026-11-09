@@ -1,5 +1,14 @@
 <?php
 $paginaActual = basename($_SERVER['PHP_SELF']);
+
+$paginas = [
+    'index.php' => 'Inici',
+    'compra.php' => 'Compra',
+    'admin.php' => 'Admin',
+];
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ca">
@@ -16,19 +25,16 @@ $paginaActual = basename($_SERVER['PHP_SELF']);
 <body>
     <header>
         <a href="/index.php" class="marca">
-<<<<<<< HEAD
             <!--<img src="/img/logo.png" alt="Logo de La Cantina" class="logo">-->
-=======
-           <!-- <img src="/img/logo.png" alt="Logo de La Cantina" class="logo"> -->
->>>>>>> 7c13fd9b529792e1df54330476e5f97fd852e8f7
             <span class="nom-lloc">La Cantina</span>
         </a>
-        <button id="burgerBtn">☰</button>
-        <nav>
-            <ul class="menu">
-                <li><a href="/compra.php" class="<?= $paginaActual === 'compra.php' ? 'actiu' : '' ?>">Compra</a></li>
-                <li><a href="/admin.php" class="<?= $paginaActual === 'admin.php' ? 'actiu' : '' ?>">Administració</a></li>
-            </ul>
+        <button id="burgerBtn" aria-label="Obrir menú" aria-expanded="false" aria-controls="menu">☰</button>
+        <nav id="menu" class="menu">
+            <?php foreach ($paginas as $archivo => $nombre): ?>
+                <a href="<?= $archivo ?>" class="<?= $archivo === $paginaActual ? 'active' : '' ?>">
+                    <?= $nombre ?>
+                </a>
+            <?php endforeach; ?>
         </nav>
     </header>
     <main>

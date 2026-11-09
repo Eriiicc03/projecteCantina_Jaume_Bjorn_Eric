@@ -1,8 +1,12 @@
 export function showBurger() {
-    let burger = document.querySelector("#burgerBtn");
-    burger.addEventListener("click", function(){
-        let menu = document.querySelector(".menu");
-        menu.style.display = "none";
-        burger.innerHTML("X");
-    });
+  const burger = document.querySelector("#burgerBtn");
+  const menu = document.querySelector("#menu");
+
+  if (!burger || !menu) return;
+
+  burger.addEventListener("click", () => {
+    const abierto = menu.classList.toggle("open");
+    burger.textContent = abierto ? "X" : "☰";
+    burger.setAttribute("aria-expanded", abierto);
+  });
 }

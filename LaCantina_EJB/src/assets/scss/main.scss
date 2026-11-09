@@ -1,16 +1,22 @@
+:root {
+  --rosa: #f599c6;
+  --amarillo: #ffea88;
+  --verde: #7dccad;
+  --azul: #4d6787;
+  --texto: #23324a;
+  --fondo: #fdfbf7;
+}
+
 body {
-  /*
-  background-image: url("/img/logo.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  */
+  background: var(--fondo);
+  color: var(--texto);
 }
 
 header {
   position: relative;
 }
 
+/*MENU*/
 #burgerBtn {
   display: none;
   background: none;
@@ -20,8 +26,38 @@ header {
 }
 
 .menu {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* logo | enlaces | acciones */
+  align-items: center;
+  padding: 10px 20px;
+  background: #fff;
+  border-bottom: 6px solid var(--azul);
+}
+
+.menu .logo-menu {
+  height: 56px;
+  justify-self: start;
+}
+
+.menu-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 40px;
+}
+
+.menu-links a {
+  padding-bottom: 4px;
+  color: var(--texto);
+  text-decoration: none;
+  border-bottom: 4px solid transparent;
+}
+
+.menu-links a:hover {
+  border-bottom-color: var(--rosa);
+}
+
+.menu-links a.active {
+  font-weight: 700;
+  border-bottom-color: var(--rosa);
 }
 
 @media (max-width: 768px) {
@@ -43,4 +79,60 @@ header {
   .menu.open {
     display: flex;
   } /* abierto */
+}
+
+/*FOOTER*/
+
+.peu {
+  margin-top: 40px;
+  padding: 20px 24px 14px;
+  background: #fff;
+  border-top: 6px solid var(--azul);
+  color: var(--texto);
+}
+
+.peu-contingut {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.peu-marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--azul);
+}
+
+.peu-logo {
+  height: 40px;
+}
+
+.peu-menu {
+  display: flex;
+  gap: 32px;
+}
+
+.peu-menu a {
+  padding-bottom: 3px;
+  color: var(--texto);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.peu-menu a:hover {
+  border-bottom-color: var(--rosa);
+}
+
+.peu-copy {
+  margin: 16px 0 0;
+  padding-top: 12px;
+  border-top: 2px solid #e6ebf1;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--azul);
 }

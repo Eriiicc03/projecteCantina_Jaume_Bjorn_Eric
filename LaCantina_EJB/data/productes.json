@@ -3,7 +3,7 @@
     "id": 1,
     "nom": "Croissant",
     "descripcio": "Croissant artesanal de mantega, acabat de fornejar.",
-    "preu": 1.80,
+    "preu": 1.80 ,
     "categoria": "Brioixeria",
     "franja": "esmorzar",
     "imagen": "assets/img/croissant.jpg",

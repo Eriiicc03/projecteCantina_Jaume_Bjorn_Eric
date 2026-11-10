@@ -4,12 +4,8 @@ function carregarProductes() {
     /*Accedim al contingut del fitxer*/
     $myfile = file_get_contents(__DIR__ . "/../data/productes.json");
     $arry = json_decode($myfile, true); //Convertim el JSON en una arry associoatiu (TRUE)
-    $noms=[];//Arry buida per anar omplint-la amb els noms
 
-    foreach ($arry as $element) { //Per cada element de la arry
-       $noms[] = $element["nom"]; //Afegim el contingut de la clau NOM dins de l'arry
-    }
-    return $noms; //Finalment retornem el resultat que volem que es mostri. (Els noms dels productes)
+    return $arry; //Finalment retornem el resultat que volem que es mostri.
 }
 
 /*Funcio que cerca per el id que ens indiqui l'usuari*/

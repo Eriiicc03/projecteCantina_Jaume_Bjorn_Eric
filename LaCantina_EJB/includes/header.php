@@ -24,17 +24,17 @@ $paginas = [
 
 <body>
     <header>
-        <a href="/index.php" class="marca">
-            <!--<img src="/img/logo.png" alt="Logo de La Cantina" class="logo">-->
-            <span class="nom-lloc">La Cantina</span>
-        </a>
         <button id="burgerBtn" aria-label="Obrir menú" aria-expanded="false" aria-controls="menu">☰</button>
         <nav id="menu" class="menu">
-            <?php foreach ($paginas as $archivo => $nombre): ?>
-                <a href="<?= $archivo ?>" class="<?= $archivo === $paginaActual ? 'active' : '' ?>">
-                    <?= $nombre ?>
-                </a>
-            <?php endforeach; ?>
+            <img src="/img/logo.png" alt="Logo Cantina" class="logo-menu">
+
+            <div class="menu-links">
+                <?php foreach ($paginas as $archivo => $nombre): ?>
+                    <a href="<?= $archivo ?>" class="<?= $archivo === $paginaActual ? 'active' : '' ?>">
+                        <?= $nombre ?>
+                    </a>
+                <?php endforeach; ?>
+            </div>
         </nav>
     </header>
     <main>

@@ -1,0 +1,15 @@
+@use "../abstracts" as *;
+
+:root {
+  --rosa: #{$rosa};
+  --amarillo: #{$amarillo};
+  --verde: #{$verde};
+  --azul: #{$azul};
+  --texto: #{$texto};
+  --fondo: #{$fondo};
+}
+
+body {
+  background: $fondo;
+  color: $texto;
+}

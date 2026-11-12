@@ -1,0 +1,19 @@
+@use "variables" as *;
+
+// El subrayado rosa al pasar el ratón (menú y footer)
+@mixin enlace-subrayado($grosor: 4px) {
+  padding-bottom: 4px;
+  color: $texto;
+  text-decoration: none;
+  border-bottom: $grosor solid transparent;
+
+  &:hover {
+    border-bottom-color: $rosa;
+  }
+}
+
+@mixin movil {
+  @media (max-width: $movil) {
+    @content;
+  }
+}

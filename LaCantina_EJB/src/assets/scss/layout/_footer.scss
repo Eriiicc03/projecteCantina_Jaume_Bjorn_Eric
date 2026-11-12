@@ -1,0 +1,53 @@
+@use "../abstracts" as *;
+
+.peu {
+  margin-top: 40px;
+  padding: 20px 24px 14px;
+  background: #fff;
+  border-top: $borde;
+  color: $texto;
+}
+
+.peu-contingut {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  @include movil {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.peu-marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: $azul;
+}
+
+.peu-logo {
+  height: 40px;
+}
+
+.peu-menu {
+  display: flex;
+  gap: 32px;
+
+  a {
+    @include enlace-subrayado(3px);
+  }
+}
+
+.peu-copy {
+  margin: 16px 0 0;
+  padding-top: 12px;
+  border-top: 2px solid $gris-borde;
+  text-align: center;
+  font-size: 0.85rem;
+  color: $azul;
+}

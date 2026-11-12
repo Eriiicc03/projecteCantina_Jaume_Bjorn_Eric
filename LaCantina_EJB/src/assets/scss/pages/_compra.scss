@@ -1,0 +1,147 @@
+@use "../abstracts" as *;
+
+.pagina-compra {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+
+  @include movil {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Filtros
+.filtres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+
+  button {
+    padding: 4px 13px;
+    background: #fff;
+    border: 1px solid $texto;
+    border-radius: $radio;
+    color: $texto;
+    cursor: pointer;
+
+    &.actiu {
+      background: $rosa;
+      font-weight: 700;
+    }
+  }
+}
+
+// Grid de productos
+.productes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+
+  @include movil {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.producte {
+  padding: 8px;
+  background: #fff;
+  border: 1px solid $texto;
+  border-radius: 8px;
+
+  img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    background: $verde;
+    border: 1px solid $verde;
+    border-radius: 4px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .nom {
+    margin: 8px 0;
+    font-size: 13px;
+  }
+}
+
+.peu-producte {
+  display: flex;
+  justify-content: space-between;
+
+  .preu {
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+
+.btn-afegir {
+  padding: 6px;
+  background: $verde;
+  border: 1px solid $texto;
+  border-radius: $radio;
+  color: $texto;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+// Panel del pedido
+.pedido {
+  display: flex;
+  flex-direction: column;
+  align-self: start;
+  position: sticky;
+  top: 16px;
+  padding: 16px;
+  background: $amarillo;
+  border: 1px solid $texto;
+  border-radius: 8px;
+
+  @include movil {
+    position: static;
+  }
+
+  h2 {
+    margin: 0 0 12px;
+    font-size: 16px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid $amarillo;
+    font-size: 13px;
+  }
+
+  .total {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: auto; // empuja el botón al fondo
+    padding: 16px 0;
+    font-weight: 700;
+  }
+
+  .btn-confirmar {
+    margin-top: 16px;
+    padding: 10px;
+    background: $rosa;
+    border: 1px solid $texto;
+    border-radius: 6px;
+    color: $texto;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}

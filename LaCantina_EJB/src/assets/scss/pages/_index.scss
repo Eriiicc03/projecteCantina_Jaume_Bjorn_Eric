@@ -1,0 +1,28 @@
+@use "../abstracts" as *;
+
+.portada_index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("/img/portada.png") center / cover no-repeat;
+  min-height: 60vh;
+  margin-top: 28px;
+
+  @include movil {
+    min-height: 25vh;
+  }
+}
+
+.btn-comanda {
+  padding: 14px 32px;
+  background: $rosa;
+  color: $texto;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: $radio;
+  border: 3px solid $azul;
+
+  &:hover {
+    background: $amarillo;
+  }
+}

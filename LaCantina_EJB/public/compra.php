@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../includes/funcions.php';
 $productes = carregarProductes();
 ?>
-<main>
+<main class="pagina-compra">
     <h1>PRODUCTES</h1>
 
     <?php foreach ($productes as $producte): ?>

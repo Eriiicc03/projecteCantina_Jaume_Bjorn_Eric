@@ -34,6 +34,24 @@ if ($producte != null) {
 }
 */ 
 
-function calcularTotal() {}
+function calcularTotal($itemsComanda) {
+    $total = 0;
+    $myfile = file_get_contents(__DIR__ . "/../data/comanda.json");
+    $arry = json_decode($myfile, true);
+    
+    if (!file_exists($myfile)) { 
+        return 0;
+    }
+
+    foreach ($itemsComanda as $item) { // Recorre cada element del JSON.
+        foreach ($arry as $producte) {
+            if ($producte['id'] == $item['id']) {
+                $total += $producte['preu'] * $item['quantitat'];
+            }
+        }
+    }
+    return $total;
+
+}
 function desarComanda() {}
 function netejar() {}

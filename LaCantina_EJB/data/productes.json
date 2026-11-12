@@ -6,7 +6,7 @@
     "preu": 1.80 ,
     "categoria": "Brioixeria",
     "franja": "esmorzar",
-    "imagen": "assets/img/croissant.jpg",
+    "imagen": "img/productesIMG/croissant.jpg",
     "oferta": false
   },
   {
@@ -16,7 +16,7 @@
     "preu": 1.60,
     "categoria": "Begudes",
     "franja": "esmorzar",
-    "imagen": "assets/img/cafe.jpg",
+    "imagen": "img/productesIMG/cafe.jpg",
     "oferta": false
   },
   {
@@ -26,7 +26,7 @@
     "preu": 3.50,
     "categoria": "Entrepans",
     "franja": "esmorzar",
-    "imagen": "assets/img/entrepa-pernil.jpg",
+    "imagen": "img/productesIMG/entrepa-pernil.jpg",
     "oferta": true
   },
   {
@@ -36,7 +36,7 @@
     "preu": 2.80,
     "categoria": "Torrades",
     "franja": "esmorzar",
-    "imagen": "assets/img/torrades-alvocat.jpg",
+    "imagen": "img/productesIMG/torrades-alvocat.jpg",
     "oferta": false
   },
   {
@@ -46,7 +46,7 @@
     "preu": 2.50,
     "categoria": "Begudes",
     "franja": "esmorzar",
-    "imagen": "assets/img/suc-taronja.jpg",
+    "imagen": "img/productesIMG/suc-taronja.jpg",
     "oferta": false
   },
   {
@@ -56,7 +56,7 @@
     "preu": 1.00,
     "categoria": "Plats principals",
     "franja": "dinar",
-    "imagen": "assets/img/hamburguesa.jpg",
+    "imagen": "img/productesIMG/hamburguesa.jpg",
     "oferta": false
   },
   {
@@ -66,7 +66,7 @@
     "preu": 6.50,
     "categoria": "Postres",
     "franja": "dinar",
-    "imagen": "assets/img/pizza-nutella.jpg",
+    "imagen": "img/productesIMG/pizza-nutella.jpg",
     "oferta": false
   },
   {
@@ -76,7 +76,7 @@
     "preu": 7.80,
     "categoria": "Amanides",
     "franja": "dinar",
-    "imagen": "assets/img/amanida-cesar.jpg",
+    "imagen": "img/productesIMG/amanida-cesar.jpg",
     "oferta": false
   },
   {
@@ -86,7 +86,7 @@
     "preu": 8.90,
     "categoria": "Pasta",
     "franja": "dinar",
-    "imagen": "assets/img/macarrons.jpg",
+    "imagen": "img/productesIMG/macarrons.jpg",
     "oferta": true
   },
   {
@@ -96,7 +96,7 @@
     "preu": 7.50,
     "categoria": "Plats principals",
     "franja": "dinar",
-    "imagen": "assets/img/nuggets.jpg",
+    "imagen": "img/productesIMG/nuggets.jpg",
     "oferta": false
   },
   {
@@ -106,7 +106,7 @@
     "preu": 4.50,
     "categoria": "Salats",
     "franja": "berenar",
-    "imagen": "assets/img/crep-salada.jpg",
+    "imagen": "img/productesIMG/crep-salada.jpg",
     "oferta": true
   },
   {
@@ -116,7 +116,7 @@
     "preu": 3.80,
     "categoria": "Begudes",
     "franja": "berenar",
-    "imagen": "assets/img/smoothie.jpg",
+    "imagen": "img/productesIMG/smoothie.jpg",
     "oferta": false
   },
   {
@@ -126,7 +126,7 @@
     "preu": 2.20,
     "categoria": "Brioixeria",
     "franja": "berenar",
-    "imagen": "assets/img/donut.jpg",
+    "imagen": "img/productesIMG/donut.jpg",
     "oferta": false
   },
   {
@@ -136,7 +136,7 @@
     "preu": 3.50,
     "categoria": "Gelats",
     "franja": "berenar",
-    "imagen": "assets/img/gelat-vainilla.jpg",
+    "imagen": "img/productesIMG/gelat-vainilla.jpg",
     "oferta": true
   },
   {
@@ -146,7 +146,7 @@
     "preu": 8.80,
     "categoria": "Pasta",
     "franja": "dinar",
-    "imagen": "assets/img/canelons.jpg",
+    "imagen": "img/productesIMG/canelons.jpg",
     "oferta": false
   }
 ]

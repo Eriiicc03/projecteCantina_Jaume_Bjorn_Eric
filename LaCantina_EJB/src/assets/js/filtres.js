@@ -1,7 +1,27 @@
+
+// Gestiona el filtratge dels productes del catàleg segons la franja seleccionada
 export function mostrarFiltres() {
-    let entrepans = document.querySelector("#entrepans");
-    entrepans.addEventListener("click", () => {
-        let entrepans = document.querySelector("#entrepans");
-        entrepans.classList.toggle("active");
+    const menuNav = document.querySelector(".filtres");
+    const productes = document.querySelectorAll(".productes .producte");
+
+    menuNav.addEventListener("click", (e) => {
+        let seleccionat = e.target.closest("button"); // Botó de filtre clicat
+
+        if (!seleccionat) return; // Evita errors si es clica fora d'un botó
+
+        let actiu = document.querySelector(".actiu"); // Filtre que està actiu actualment
+        if (actiu) {
+            actiu.classList.remove("actiu");
+        }
+        seleccionat.classList.add("actiu"); // Marca el botó clicat com a actiu
+
+        // Bucle per recórrer tots els productes i mostrar només els de la categoria triada
+        productes.forEach(producte => {
+            if (seleccionat.id !== "tot" && !producte.classList.contains(seleccionat.id)) {
+                producte.classList.add("ocult"); // Amaguem el producte
+            } else {
+                producte.classList.remove("ocult"); // Mostrem el producte
+            }
+        });
     });
 }

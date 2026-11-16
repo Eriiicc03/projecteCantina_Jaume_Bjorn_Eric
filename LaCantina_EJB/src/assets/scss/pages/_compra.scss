@@ -81,6 +81,10 @@
   }
 }
 
+.producte.ocult {
+  display: none;
+}
+
 .btn-afegir {
   padding: 6px;
   background: $verde;
@@ -144,4 +148,6 @@
     font-weight: 700;
     cursor: pointer;
   }
+
+
 }

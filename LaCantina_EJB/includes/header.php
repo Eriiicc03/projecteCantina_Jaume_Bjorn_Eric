@@ -4,7 +4,7 @@ $paginaActual = basename($_SERVER['PHP_SELF']);
 $paginas = [
     'index.php' => 'Inici',
     'compra.php' => 'Compra',
-    'admin.php' => 'Admin',
+    'login.php' => 'Admin',
 ];
 
 

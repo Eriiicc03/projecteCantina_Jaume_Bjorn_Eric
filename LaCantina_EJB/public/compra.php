@@ -7,14 +7,14 @@ $productes = carregarProductes();
     <section class="cataleg">
         <nav class="filtres">
             <button id="tot" class="actiu">Tot</button>
-            <button id="entrepans">Entrepans</button>
-            <button id="begudes">Begudes</button>
-            <button id="dolcos">Dolços</button>
+            <button id="esmorzar">Esmorzar</button>
+            <button id="dinar">Dinar</button>
+            <button id="berenar">Berenar</button>
         </nav>
 
         <div class="productes">
             <?php foreach ($productes as $producte): ?>
-                <div class="producte">
+                <div class="producte <?= htmlspecialchars($producte['franja']) ?>">
                     <img src="<?= htmlspecialchars($producte['imagen']) ?>"
                         alt="<?= htmlspecialchars($producte['nom']) ?>">
 

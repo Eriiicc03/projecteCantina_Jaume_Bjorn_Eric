@@ -74,4 +74,16 @@ function desarComanda(array $dades): bool
 
     return $resultat !== false;
 }
+
 function netejar() {}
+
+
+function afegirAComanda($IdProducte){
+    $producte = cercaPerID($IdProducte);
+
+    $_SESSION['comanda'] [] = $producte;
+}
+
+function buidarComanda(){
+    unset($_SESSION['comanda']);
+}

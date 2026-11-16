@@ -1,6 +1,16 @@
-<?php include __DIR__ . '/../includes/header.php';
+<?php session_start();
+include __DIR__ . '/../includes/header.php';
 require_once __DIR__ . '/../includes/funcions.php';
 $productes = carregarProductes();
+
+if (isset($_POST['idProducte'])) {
+    afegirAComanda($_POST['idProducte']);
+}
+
+if (isset($_POST['buidarComanda'])) {
+    buidarComanda();
+}
+
 ?>
 <main class="pagina-compra">
 
@@ -22,7 +32,10 @@ $productes = carregarProductes();
 
                     <div class="peu-producte">
                         <p class="preu"><?= number_format($producte['preu'], 2, ',', '.') ?> €</p>
-                        <button class="btn-afegir">+ Afegir</button>
+                        <form method="post">
+                            <input hidden name="idProducte" value="<?= $producte['id'] ?>">
+                            <button class="btn-afegir">+ Afegir</button>
+                        </form>
                     </div>
                 </div>
             <?php endforeach; ?>
@@ -32,13 +45,20 @@ $productes = carregarProductes();
     <aside class="pedido">
         <h2>La teva comanda</h2>
         <ul>
-            <li><span>Producte A x1</span><span>0,00 €</span></li>
-            <li><span>Producte B x2</span><span>0,00 €</span></li>
+            <?php foreach ($_SESSION['comanda'] ?? [] as $item): ?>
+                <li>
+                    <span><?= htmlspecialchars($item['nom']) ?></span>
+                    <span><?= number_format($item['preu'], 2, ',', '.') ?> €</span>
+                </li>
+            <?php endforeach; ?>
         </ul>
         <div class="total">
             <span>Total</span>
             <span>0,00 €</span>
         </div>
+        <form method="post">
+            <button class="btn-confirmar" name="buidarComanda">Reiniciar Comanda</button>
+        </form>
         <button class="btn-confirmar">Confirmar compra</button>
     </aside>
 

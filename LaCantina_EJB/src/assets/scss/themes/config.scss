@@ -1,0 +1,24 @@
+@use "light";
+@use "dark";
+
+:root {
+  color-scheme: light;
+  --fondo: #{light.$fondo};
+  --superficie: #{light.$superficie};
+  --texto: #{light.$texto};
+  --texto-suave: #{light.$texto-suave};
+  --borde: #{light.$borde};
+  --gris-borde: #{light.$gris-borde};
+  --texto-sobre-color: #{light.$texto-sobre-color};
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+  --fondo: #{dark.$fondo};
+  --superficie: #{dark.$superficie};
+  --texto: #{dark.$texto};
+  --texto-suave: #{dark.$texto-suave};
+  --borde: #{dark.$borde};
+  --gris-borde: #{dark.$gris-borde};
+  --texto-sobre-color: #{dark.$texto-sobre-color};
+}

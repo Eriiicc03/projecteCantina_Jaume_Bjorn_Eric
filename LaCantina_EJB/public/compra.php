@@ -5,11 +5,14 @@ $productes = carregarProductes();
 
 if (isset($_POST['idProducte'])) {
     afegirAComanda($_POST['idProducte']);
+    header('Location: compra.php');
 }
-
 if (isset($_POST['buidarComanda'])) {
     buidarComanda();
+    header('Location: compra.php');
 }
+
+$total = calcularTotal($_SESSION['comanda'] ?? []);
 
 ?>
 <main class="pagina-compra">
@@ -54,7 +57,7 @@ if (isset($_POST['buidarComanda'])) {
         </ul>
         <div class="total">
             <span>Total</span>
-            <span>0,00 €</span>
+            <span><?= number_format($total, 2, ',', '.') ?> €</span>
         </div>
         <form method="post">
             <button class="btn-confirmar" name="buidarComanda">Reiniciar Comanda</button>

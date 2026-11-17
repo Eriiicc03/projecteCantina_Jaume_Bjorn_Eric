@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+// Si ja ha fet login, directe a admin
+if (isset($_SESSION["admin"])) {
+    header("Location: admin.php");
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $usuaris = require __DIR__ . '/usuaris.php';
 
@@ -14,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             $_SESSION['admin'] = $usuari; //guardamos que ha entrado
 
             header('Location: admin.php');  //redirigim a admin.php
+            exit;
         }
     }
 }
@@ -21,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 ?>
 
 <?php include __DIR__ . '/../includes/header.php'; ?>
-<main>
     <h2 id="titol-login">LOGIN ADMINISTRACIO</h2>
 
     <form method="POST" action="login.php" class="formulari-admin">
@@ -34,5 +40,4 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         <button type="submit">Entrar</button>
     </form>
 
-</main>
 <?php include __DIR__ . '/../includes/footer.php'; ?>

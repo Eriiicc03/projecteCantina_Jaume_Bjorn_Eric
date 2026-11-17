@@ -40,20 +40,10 @@ if ($producte != null) {
 function calcularTotal(array $ticket): float
 {
     $total = 0.0;
-
-    foreach ($ticket as $id => $quantitat) {
-        $quantitat = (int) $quantitat;
-        if ($quantitat <= 0) {
-            continue;
-        }
-
-        $producte = cercaPerID($id);
-        if (!is_array($producte)) {
-            continue;
-        }
-
-        $total += (float) $producte['preu'] * $quantitat;
+    foreach ($ticket as $producte) {
+        $total += (float) $producte['preu'];
     }
+
     return round($total, 2);
 }
 
@@ -74,9 +64,6 @@ function desarComanda(array $dades): bool
 
     return $resultat !== false;
 }
-
-function netejar() {}
-
 
 function afegirAComanda($IdProducte){
     $producte = cercaPerID($IdProducte);

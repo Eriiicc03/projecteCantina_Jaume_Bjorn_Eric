@@ -62,7 +62,7 @@ $total = calcularTotal($_SESSION['comanda'] ?? []);
         <form method="post">
             <button class="btn-confirmar" name="buidarComanda">Reiniciar Comanda</button>
         </form>
-        <button class="btn-confirmar">Confirmar compra</button>
+        <a href="finalitzacio.php" class="btn-confirmar">Confirmar compra</a>
     </aside>
 
 </main>

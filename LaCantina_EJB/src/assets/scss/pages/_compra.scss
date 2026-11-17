@@ -147,6 +147,9 @@
     color: $texto;
     font-weight: 700;
     cursor: pointer;
+    display: block; // també quan és un enllaç
+    text-align: center;
+    text-decoration: none;
   }
 
 

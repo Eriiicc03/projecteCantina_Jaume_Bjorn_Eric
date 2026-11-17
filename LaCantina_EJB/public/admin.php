@@ -1,14 +1,56 @@
 <?php
 session_start();
+require_once __DIR__ . "/../includes/funcions.php";
 
-if (!isset($_SESSION['admin'])) {   // si no ha hecho login...
-    header('Location: login.php');  // ...lo mandamos al login
+
+// Tancar sessió
+if (isset($_GET["logout"])) {
+    session_destroy();
+    header("Location: login.php");
     exit;
 }
-?>
-<?php include __DIR__ . '/../includes/header.php'; ?>
-<main>
-    ADMINISTRACION
+// Si no ha fet login, al login
+if (!isset($_SESSION["admin"])) {
+    header("Location: login.php");
+    exit;
+}
 
-</main>
-<?php include __DIR__ . '/../includes/footer.php'; ?>
+// Llegim les comandes (una línia JSON per comanda)
+$comandes = [];
+$fitxer = __DIR__ . "/../data/comandes.txt";
+if (file_exists($fitxer)) {
+    foreach (file($fitxer, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $linia) {
+        $c = json_decode($linia, true);
+        if (is_array($c)) $comandes[] = $c;
+    }
+}
+$comandes = array_reverse($comandes); // més recent primer
+include __DIR__ . "/../includes/header.php";
+?>
+<section class="pagina-admin">
+    <div class="admin-cap">
+        <h2>Tiquets de les comandes</h2>
+        <a href="admin.php?logout=1" class="btn-sortir">Tancar sessió</a>
+    </div>
+
+    <?php if (empty($comandes)): ?>
+        <p class="sense-comandes">No hi ha cap comanda.</p>
+    <?php else: ?>
+        <?php foreach ($comandes as $c): $ticket = $c["ticket"] ?? []; ?>
+            <article class="tiquet">
+                <p class="tiquet-data"><?= htmlspecialchars($c["data"] ?? "") ?></p>
+                <p class="tiquet-client"><?= htmlspecialchars($c["nom"] ?? "") ?> ·
+                    <?= htmlspecialchars($c["telefon"] ?? "") ?> ·
+                    <?= htmlspecialchars($c["correu"] ?? "") ?></p>
+                <ul>
+                    <?php foreach ($ticket as $id => $q): $p = cercaPerID($id);
+                        if (!is_array($p)) continue; ?>
+                        <li><?= htmlspecialchars($p["nom"]) ?> x <?= (int)$q ?></li>
+                    <?php endforeach; ?>
+                </ul>
+                <p class="tiquet-total">Total: <?= htmlspecialchars(number_format(calcularTotal($ticket), 2, ",", ".")) ?> €</p>
+            </article>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</section>
+<?php include __DIR__ . "/../includes/footer.php"; ?>

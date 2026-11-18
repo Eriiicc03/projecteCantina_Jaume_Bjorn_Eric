@@ -46,27 +46,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 include __DIR__ . "/../includes/header.php";
 ?>
 <section class="pagina-finalitzacio">
-<h2>Finalitzar comanda</h2>
+    <h2>Finalitzar comanda</h2>
 
-<article class="tiquet">
-<ul>
-    <?php foreach ($ticket as $id => $q): $p = cercaPerID($id);
-        if (!is_array($p)) continue; ?>
-        <li><?= htmlspecialchars($p["nom"]) ?> x <?= (int)$q ?></li>
+    <article class="tiquet">
+        <ul>
+            <?php foreach ($ticket as $id => $q): $p = cercaPerID($id);
+                if (!is_array($p)) continue; ?>
+                <li><?= htmlspecialchars($p["nom"]) ?> x <?= (int)$q ?></li>
+            <?php endforeach; ?>
+        </ul>
+        <p class="tiquet-total">Total: <?= number_format(calcularTotal($_SESSION["comanda"]), 2, ",", ".") ?> €</p>
+    </article>
+
+    <?php foreach ($errors as $e): ?>
+        <p class="error"><?= htmlspecialchars($e) ?></p>
     <?php endforeach; ?>
-</ul>
-<p class="tiquet-total">Total: <?= number_format(calcularTotal($ticket), 2, ",", ".") ?> €</p>
-</article>
 
-<?php foreach ($errors as $e): ?>
-    <p class="error"><?= htmlspecialchars($e) ?></p>
-<?php endforeach; ?>
-
-<form method="post" class="formulari-comanda">
-    <label>Nom: <input type="text" name="nom" value="<?= htmlspecialchars($nom) ?>" required></label>
-    <label>Telèfon: <input type="tel" name="telefon" value="<?= htmlspecialchars($telefon) ?>" required></label>
-    <label>Correu: <input type="email" name="correu" value="<?= htmlspecialchars($correu) ?>" required></label>
-    <button type="submit">Enviar comanda</button>
-</form>
+    <form method="post" class="formulari-comanda">
+        <label>Nom: <input type="text" name="nom" value="<?= htmlspecialchars($nom) ?>" required></label>
+        <label>Telèfon: <input type="tel" name="telefon" value="<?= htmlspecialchars($telefon) ?>" required></label>
+        <label>Correu: <input type="email" name="correu" value="<?= htmlspecialchars($correu) ?>" required></label>
+        <button type="submit">Enviar comanda</button>
+    </form>
 </section>
 <?php include __DIR__ . "/../includes/footer.php"; ?>

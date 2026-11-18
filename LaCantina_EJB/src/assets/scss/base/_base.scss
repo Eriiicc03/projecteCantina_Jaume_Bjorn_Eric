@@ -5,11 +5,10 @@
   --amarillo: #{$amarillo};
   --verde: #{$verde};
   --azul: #{$azul};
-  --texto: #{$texto};
-  --fondo: #{$fondo};
 }
 
 body {
-  background: $fondo;
-  color: $texto;
+  background-color: var(--fondo);
+  color: var(--texto);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }

@@ -22,7 +22,7 @@
 
   button {
     padding: 4px 13px;
-    background: #fff;
+    background: var(--caja-producto);
     border: 1px solid $texto;
     border-radius: $radio;
     color: $texto;
@@ -48,7 +48,7 @@
 
 .producte {
   padding: 8px;
-  background: #fff;
+  background: var(--caja-producto);
   border: 1px solid $texto;
   border-radius: 8px;
 
@@ -63,6 +63,7 @@
 
   p {
     margin: 0;
+    color: black;
   }
 
   .nom {
@@ -106,6 +107,7 @@
   background: $amarillo;
   border: 1px solid $texto;
   border-radius: 8px;
+  color: black;
 
   @include movil {
     position: static;

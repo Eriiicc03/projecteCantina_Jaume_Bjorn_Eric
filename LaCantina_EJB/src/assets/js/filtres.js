@@ -4,6 +4,8 @@ export function mostrarFiltres() {
     const menuNav = document.querySelector(".filtres");
     const productes = document.querySelectorAll(".productes .producte");
 
+    if (!menuNav) return; // Si no troba l'atribut torna per evitar errors de notFound.
+
     menuNav.addEventListener("click", (e) => {
         let seleccionat = e.target.closest("button"); // Botó de filtre clicat
 

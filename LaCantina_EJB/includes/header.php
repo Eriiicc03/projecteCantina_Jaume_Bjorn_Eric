@@ -11,7 +11,7 @@ $paginas = [
 
 ?>
 <!DOCTYPE html>
-<html lang="ca">
+<html lang="ca" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -35,6 +35,7 @@ $paginas = [
                     </a>
                 <?php endforeach; ?>
             </div>
+            <button id="theme-toggle" class="btn-tema" type="button" aria-label="Canviar tema"></button>
         </nav>
     </header>
     <main>

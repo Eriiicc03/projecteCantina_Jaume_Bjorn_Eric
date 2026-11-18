@@ -3,9 +3,9 @@
 .peu {
   margin-top: 40px;
   padding: 20px 24px 14px;
-  background: #fff;
-  border-top: $borde;
-  color: $texto;
+  background-color: var(--superficie); // Canvia de #ffffff a #1e232b
+  border-top: 1px solid var(--borde);  // Vora superior dinàmica
+  color: var(--texto);
 }
 
 .peu-contingut {
@@ -27,7 +27,7 @@
   gap: 10px;
   font-size: 1.2rem;
   font-weight: 700;
-  color: $azul;
+  color: var(--texto); // Substitueix el blau fix perquè es llegeixi bé en fosc
 }
 
 .peu-logo {
@@ -40,14 +40,15 @@
 
   a {
     @include enlace-subrayado(3px);
+    color: var(--texto); // S'adapta automàticament al tema actiu
   }
 }
 
 .peu-copy {
   margin: 16px 0 0;
   padding-top: 12px;
-  border-top: 2px solid $gris-borde;
+  border-top: 2px solid var(--gris-borde); // Línia divisòria subtil
   text-align: center;
   font-size: 0.85rem;
-  color: $azul;
+  color: var(--texto-suave); // To secundari suau per al copyright
 }

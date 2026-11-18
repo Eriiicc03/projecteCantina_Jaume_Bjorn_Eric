@@ -151,3 +151,43 @@
     cursor: pointer;
   }
 }
+.cantina-tancada {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 2rem;
+    margin: 2rem auto;
+    max-width: 520px;
+    background-color: $amarillo;
+    color: $texto;
+    border: $borde;
+    border-radius: 30px;
+
+    h2 {
+        color: $azul;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        margin-bottom: 0.75rem;
+        line-height: 1.5;
+    }
+
+    .btn-confirmar {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 0.8rem 2rem;
+        background-color: $verde;
+        color: $texto;
+        border: $borde;
+        border-radius: $radio;
+        font-weight: bold;
+        text-decoration: none;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+
+        &:hover {
+            background-color: $rosa;
+            transform: scale(1.03);
+        }
+    }
+}

@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Desem la comanda i la buidem
     if (empty($errors)) {
-        if (desarComanda(["nom" => $nom, "telefon" => $telefon, "correu" => $correu, "ticket" => $ticket])) {
+        if (desarComanda(["nom" => $nom, "telefon" => $telefon, "correu" => $correu, "ticket" => $ticket, "total" => calcularTotal($_SESSION["comanda"])])) {
             buidarComanda();
             header("Location: finalitzacio.php?ok=1");
             exit;

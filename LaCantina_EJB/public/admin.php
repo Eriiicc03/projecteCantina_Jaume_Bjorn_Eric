@@ -4,14 +4,15 @@ require_once __DIR__ . "/../includes/funcions.php";
 
 
 // Tancar sessió
-if (isset($_GET["logout"])) {
+if (isset($_POST["logout"])) {
+    session_unset();
     session_destroy();
     header("Location: login.php");
     exit;
 }
 // Si no ha fet login, al login
 if (!isset($_SESSION["admin"])) {
-    header("Location: login.php");
+    header("Location: login.php");  
     exit;
 }
 
@@ -30,7 +31,10 @@ include __DIR__ . "/../includes/header.php";
 <section class="pagina-admin">
     <div class="admin-cap">
         <h2>Tiquets de les comandes</h2>
-        <a href="admin.php?logout=1" class="btn-sortir">Tancar sessió</a>
+        <a href="productes-admin.php" class="btn-sortir">Productes</a>
+        <form method="post" class="form-eliminar">
+            <button name="logout" class="btn-sortir">Tancar sessió</button>
+        </form>
     </div>
 
     <?php if (empty($comandes)): ?>
@@ -42,7 +46,8 @@ include __DIR__ . "/../includes/header.php";
                 <p class="tiquet-client"><?= htmlspecialchars($c["nom"] ?? "") ?> ·
                     <?= htmlspecialchars($c["telefon"] ?? "") ?> ·
                     <?= htmlspecialchars($c["correu"] ?? "") ?></p>
-                <?php $linies = []; // productes d'aquest tiquet ?>
+                <?php $linies = []; // productes d'aquest tiquet 
+                ?>
                 <ul>
                     <?php foreach ($ticket as $id => $q): $p = cercaPerID($id);
                         if (!is_array($p)) continue;
@@ -50,7 +55,7 @@ include __DIR__ . "/../includes/header.php";
                         <li><?= htmlspecialchars($p["nom"]) ?> x <?= (int)$q ?></li>
                     <?php endforeach; ?>
                 </ul>
-                <p class="tiquet-total">Total: <?= htmlspecialchars(number_format(calcularTotal($linies), 2, ",", ".")) ?> €</p>
+                <p class="tiquet-total">Total: <?= htmlspecialchars(number_format($c["total"] ?? calcularTotal($linies), 2, ",", ".")) ?> €</p>
             </article>
         <?php endforeach; ?>
     <?php endif; ?>

@@ -10,6 +10,7 @@
             <nav class="peu-menu">
                 <a href="/compra.php">Compra</a>
                 <a href="/admin.php">Administració</a>
+                <a href="/condicions.php">Condicions legals</a>
             </nav>
         </div>
 

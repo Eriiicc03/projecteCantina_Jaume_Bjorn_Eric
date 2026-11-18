@@ -35,7 +35,7 @@ $paginas = [
                     </a>
                 <?php endforeach; ?>
             </div>
-            <button id="theme-toggle" type="button">Canviar tema</button>
+            <button id="theme-toggle" class="btn-tema" type="button" aria-label="Canviar tema"></button>
         </nav>
     </header>
     <main>

@@ -10,6 +10,7 @@
   --borde: #{light.$borde};
   --gris-borde: #{light.$gris-borde};
   --texto-sobre-color: #{light.$texto-sobre-color};
+  --caja-producto: #{light.$caja-producto};
 }
 
 [data-theme="dark"] {
@@ -21,4 +22,5 @@
   --borde: #{dark.$borde};
   --gris-borde: #{dark.$gris-borde};
   --texto-sobre-color: #{dark.$texto-sobre-color};
+  --caja-producto: #{dark.$caja-producto};
 }

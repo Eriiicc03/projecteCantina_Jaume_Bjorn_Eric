@@ -24,7 +24,7 @@
 
 .btn-sortir {
   padding: 6px 14px;
-  background: #fff;
+  background: $rojo;
   border: 1px solid $texto;
   border-radius: $radio;
   color: $texto;
@@ -44,7 +44,7 @@
 .tiquet {
   margin-bottom: 16px;
   padding: 12px 16px;
-  background: #fff;
+  background: var(--fondo);
   border: 1px solid $texto;
   border-left: 6px solid $verde;
   border-radius: 8px;

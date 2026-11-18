@@ -6,28 +6,32 @@ $productes = carregarProductes();
 if (isset($_POST['idProducte'])) {
     afegirAComanda($_POST['idProducte']);
     header('Location: compra.php');
+    exit;
 }
 if (isset($_POST['buidarComanda'])) {
     buidarComanda();
     header('Location: compra.php');
+    exit;
 }
 
 $total = calcularTotal($_SESSION['comanda'] ?? []);
-
+$filtreDefecte = obtenirFiltrePerHora();
 ?>
 <main class="pagina-compra">
 
     <section class="cataleg">
         <nav class="filtres">
-            <button id="tot" class="actiu">Tot</button>
-            <button id="esmorzar">Esmorzar</button>
-            <button id="dinar">Dinar</button>
-            <button id="berenar">Berenar</button>
+            <!-- Crea els botons de filtres, posant per defecte actiu si compleix amb la condició marcada a la funció depenent de la hora. -->
+            <button id="tot" class="<?= $filtreDefecte === 'tot' ? 'actiu' : '' ?>">Tot</button>
+            <button id="esmorzar" class="<?= $filtreDefecte === 'esmorzar' ? 'actiu' : '' ?>">Esmorzar</button>
+            <button id="dinar" class="<?= $filtreDefecte === 'dinar' ? 'actiu' : '' ?>">Dinar</button>
+            <button id="berenar" class="<?= $filtreDefecte === 'berenar' ? 'actiu' : '' ?>">Berenar</button>
         </nav>
 
         <div class="productes">
-            <?php foreach ($productes as $producte): ?>
-                <div class="producte <?= htmlspecialchars($producte['franja']) ?>">
+        <!-- // Amaguem el producte amb la classe 'ocult' si el filtre no és 'tot' i la seva franja no coincideix amb l'hora actual -->
+            <?php foreach ($productes as $producte): ?> 
+                <div class="producte <?= htmlspecialchars($producte['franja']) ?> <?= ($filtreDefecte !== 'tot' && $producte['franja'] !== $filtreDefecte) ? 'ocult' : '' ?>">
                     <img src="<?= htmlspecialchars($producte['imagen']) ?>"
                         alt="<?= htmlspecialchars($producte['nom']) ?>">
 

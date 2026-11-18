@@ -74,3 +74,20 @@ function afegirAComanda($IdProducte){
 function buidarComanda(){
     unset($_SESSION['comanda']);
 }
+
+// Determina la franja horària per defecte segons l'hora actual (format 24h)
+function obtenirFiltrePerHora(): string
+{
+    date_default_timezone_set('Europe/Madrid');
+    $horaActual = (int) date('G');
+
+    if ($horaActual >= 8 && $horaActual < 12) {
+        return 'esmorzar'; // De 8:00 a 11:59
+    } elseif ($horaActual >= 12 && $horaActual < 16) {
+        return 'dinar';    // De 12:00 a 15:59
+    } elseif ($horaActual >= 16 && $horaActual < 20) {
+        return 'berenar';  // De 16:00 a 19:59
+    }
+
+    return 'tancat'; // De 20:00 a 07:59 la cantina està tancada
+}

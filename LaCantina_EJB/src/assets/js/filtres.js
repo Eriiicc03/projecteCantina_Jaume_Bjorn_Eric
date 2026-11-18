@@ -19,7 +19,7 @@ export function mostrarFiltres() {
 
         // Bucle per recórrer tots els productes i mostrar només els de la categoria triada
         productes.forEach(producte => {
-            if (seleccionat.id !== "tot" && !producte.classList.contains(seleccionat.id)) {
+            if (seleccionat.id !== "tot" && !producte.classList.contains("tot") && !producte.classList.contains(seleccionat.id)) {
                 producte.classList.add("ocult"); // Amaguem el producte
             } else {
                 producte.classList.remove("ocult"); // Mostrem el producte

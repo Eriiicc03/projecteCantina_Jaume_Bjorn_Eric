@@ -42,13 +42,15 @@ include __DIR__ . "/../includes/header.php";
                 <p class="tiquet-client"><?= htmlspecialchars($c["nom"] ?? "") ?> ·
                     <?= htmlspecialchars($c["telefon"] ?? "") ?> ·
                     <?= htmlspecialchars($c["correu"] ?? "") ?></p>
+                <?php $linies = []; // productes d'aquest tiquet ?>
                 <ul>
                     <?php foreach ($ticket as $id => $q): $p = cercaPerID($id);
-                        if (!is_array($p)) continue; ?>
+                        if (!is_array($p)) continue;
+                        for ($i = 0; $i < $q; $i++) $linies[] = $p; ?>
                         <li><?= htmlspecialchars($p["nom"]) ?> x <?= (int)$q ?></li>
                     <?php endforeach; ?>
                 </ul>
-                <p class="tiquet-total">Total: <?= htmlspecialchars(number_format(calcularTotal($ticket), 2, ",", ".")) ?> €</p>
+                <p class="tiquet-total">Total: <?= htmlspecialchars(number_format(calcularTotal($linies), 2, ",", ".")) ?> €</p>
             </article>
         <?php endforeach; ?>
     <?php endif; ?>

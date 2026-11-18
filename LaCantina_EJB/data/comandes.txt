@@ -1,3 +1,6 @@
 {"nom":"Eric","telefon":"640856007","correu":"eric@gmail.com","ticket":{"2":2,"3":1},"data":"2026-11-17 15:09:07"}
 {"nom":"Eric","telefon":"640856007","correu":"eric@gmail.com","ticket":{"3":2},"data":"2026-11-18 17:51:04"}
 {"nom":"Eric","telefon":"640856007","correu":"eric@gmail.com","ticket":{"2":1,"8":1,"15":1},"data":"2026-11-18 18:00:54"}
+{"nom":"Eric","telefon":"640856007","correu":"eric@gmail.com","ticket":{"1":1,"2":1},"data":"2026-11-18 18:05:15"}
+{"nom":"Eric","telefon":"640856007","correu":"eric@gmail.com","ticket":{"1":1,"2":1},"total":3.1,"data":"2026-11-18 18:29:20"}
+{"nom":"Eric","telefon":"640856007","correu":"eric@gmail.com","ticket":{"12":1,"2":1},"total":5.4,"data":"2026-11-18 19:02:29"}

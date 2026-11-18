@@ -5,7 +5,7 @@ function carregarProductes()
 {
     /*Accedim al contingut del fitxer*/
     $myfile = file_get_contents(__DIR__ . "/../data/productes.json");
-    $arry = json_decode($myfile, true); //Convertim el JSON en una arry associoatiu (TRUE)
+    $arry = json_decode($myfile, true); //Convertim el JSON en una arry
 
     return $arry; //Finalment retornem el resultat que volem que es mostri.
 }
@@ -15,7 +15,7 @@ function cercaPerID($id)
 {
     /*Accedim al contingut del fitxer*/
     $myfile = file_get_contents(__DIR__ . "/../data/productes.json");
-    $arry = json_decode($myfile, true); //Convertim el JSON en una arry associoatiu (TRUE)
+    $arry = json_decode($myfile, true); //Convertim el JSON en una arry 
 
     foreach ($arry as $producte) { //Per cada producte de la arry
         if ($producte["id"] == $id) { //Si el id del producte es igual que al del parametre del usuari.

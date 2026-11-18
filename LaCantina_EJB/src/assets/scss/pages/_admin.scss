@@ -116,3 +116,14 @@
   background: $amarillo;
   border-radius: 6px;
 }
+
+// Gestió de productes
+.form-eliminar {
+  display: inline;
+  margin-left: 8px;
+
+  button {
+    font: inherit;
+    cursor: pointer;
+  }
+}

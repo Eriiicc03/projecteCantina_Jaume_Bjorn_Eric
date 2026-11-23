@@ -79,7 +79,7 @@ function buidarComanda(){
 function obtenirFiltrePerHora(): string
 {
     date_default_timezone_set('Europe/Madrid');
-    $horaActual = (int) date('G');
+    $horaActual = (int) date(20);
 
     if ($horaActual >= 8 && $horaActual < 12) {
         return 'esmorzar'; // De 8:00 a 11:59

@@ -159,7 +159,7 @@
     max-width: 520px;
     background-color: $amarillo;
     color: $texto;
-    border: $borde;
+    border: 6px solid var(--borde-cerrado); // O 1px solid var(--borde-cerrado)
     border-radius: 30px;
 
     h2 {
@@ -179,7 +179,7 @@
         padding: 0.8rem 2rem;
         background-color: $verde;
         color: $texto;
-        border: $borde;
+        border: 6px solid var(--borde-cerrado);
         border-radius: $radio;
         font-weight: bold;
         text-decoration: none;

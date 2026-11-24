@@ -3,9 +3,36 @@ session_start();
 require_once __DIR__ . "/../includes/funcions.php";
 
 // Missatge de confirmació
-if (isset($_GET["ok"])) {
+// Missatge de confirmació + tiquet
+if (isset($_GET["ok"]) && !empty($_SESSION["ultimTiquet"])) {
+    $ticket = $_SESSION["ultimTiquet"];
     include __DIR__ . "/../includes/header.php";
-    echo "<section class=\"pagina-finalitzacio\"><h2>Comanda enviada correctament!</h2><p class=\"sense-comandes\"><a href=\"compra.php\" class=\"btn-sortir\">Tornar</a></p></section>";
+?>
+    <section class="pagina-finalitzacio">
+        <h2>Comanda enviada correctament!</h2>
+
+        <article class="tiquet">
+            <p class="tiquet-data"><?= htmlspecialchars($ticket["data"]) ?></p>
+            <p class="tiquet-client"><?= htmlspecialchars($ticket["nom"]) ?> ·
+                <?= htmlspecialchars($ticket["telefon"]) ?> ·
+                <?= htmlspecialchars($ticket["correu"]) ?></p>
+            <ul>
+                <?php foreach ($ticket["ticket"] as $id => $quantitat): $producte = cercaPerID($id);
+                    if (!is_array($producte)) continue; ?>
+                    <li>
+                        <?= htmlspecialchars($producte["nom"]) ?> x <?= (int)$quantitat ?>
+                        — <?= number_format($producte["preu"] * $quantitat, 2) ?> €
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <p class="tiquet-total">Total: <?= number_format($ticket["total"], 2) ?> €</p>
+        </article>
+
+        <p class="sense-comandes">
+            <a href="compra.php" class="btn-sortir">Tornar</a>
+        </p>
+    </section>
+<?php
     include __DIR__ . "/../includes/footer.php";
     exit;
 }
@@ -34,7 +61,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // Desem la comanda i la buidem
     if (empty($errors)) {
-        if (desarComanda(["nom" => $nom, "telefon" => $telefon, "correu" => $correu, "ticket" => $ticket, "total" => calcularTotal($_SESSION["comanda"])])) {
+        $dades = [
+            "nom" => $nom,
+            "telefon" => $telefon,
+            "correu" => $correu,
+            "ticket" => $ticket,
+            "total" => calcularTotal($_SESSION["comanda"])
+        ];
+        if (desarComanda($dades)) {
+            // Guardem una còpia per mostrar-la després de la redirecció
+            $_SESSION["ultimTiquet"] = $dades + ["data" => date("d/m/Y H:i")];
             buidarComanda();
             header("Location: finalitzacio.php?ok=1");
             exit;
@@ -50,9 +86,9 @@ include __DIR__ . "/../includes/header.php";
 
     <article class="tiquet">
         <ul>
-            <?php foreach ($ticket as $id => $q): $p = cercaPerID($id);
-                if (!is_array($p)) continue; ?>
-                <li><?= htmlspecialchars($p["nom"]) ?> x <?= (int)$q ?></li>
+            <?php foreach ($ticket as $id => $quantitat): $producte = cercaPerID($id);
+                if (!is_array($producte)) continue; ?>
+                <li><?= htmlspecialchars($producte["nom"]) ?> x <?= (int)$quantitat ?></li>
             <?php endforeach; ?>
         </ul>
         <p class="tiquet-total">Total: <?= number_format(calcularTotal($_SESSION["comanda"]), 2, ",", ".") ?> €</p>

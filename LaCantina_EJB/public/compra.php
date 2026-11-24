@@ -19,6 +19,14 @@ if (isset($_POST['buidarComanda'])) {
     exit;
 }
 
+// Eliminar producte de la llista del carrito
+if (isset($_POST['eliminarProducte'])) {
+    treureDeComanda($_POST['eliminarProducte']);
+    header('Location: compra.php');
+    exit;
+}
+
+
 $productes = carregarProductes();
 $total = calcularTotal($_SESSION['comanda'] ?? []);
 
@@ -72,10 +80,14 @@ include __DIR__ . '/../includes/header.php';
         <aside class="pedido">
             <h2>La teva comanda</h2>
             <ul>
-                <?php foreach ($_SESSION['comanda'] ?? [] as $item): ?>
+                <?php foreach ($_SESSION['comanda'] ?? [] as $index => $item): ?>
                     <li>
                         <span><?= htmlspecialchars($item['nom']) ?></span>
                         <span><?= number_format($item['preu'], 2, ',', '.') ?> €</span>
+                        <form method="post">
+                            <input type="hidden" name="eliminarProducte" value="<?= $index ?>">
+                            <button class="borrar" aria-label="Eliminar">X</button>
+                        </form>
                     </li>
                 <?php endforeach; ?>
             </ul>

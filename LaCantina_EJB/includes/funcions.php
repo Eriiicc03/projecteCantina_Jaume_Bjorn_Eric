@@ -65,13 +65,15 @@ function desarComanda(array $dades): bool
     return $resultat !== false;
 }
 
-function afegirAComanda($IdProducte){
+function afegirAComanda($IdProducte)
+{
     $producte = cercaPerID($IdProducte);
 
-    $_SESSION['comanda'] [] = $producte;
+    $_SESSION['comanda'][] = $producte;
 }
 
-function buidarComanda(){
+function buidarComanda()
+{
     unset($_SESSION['comanda']);
 }
 
@@ -90,4 +92,13 @@ function obtenirFiltrePerHora(): string
     }
 
     return 'tancat'; // De 20:00 a 07:59 la cantina està tancada
+}
+
+// Eliminar producte de la llista del carrito
+function treureDeComanda($index)
+{
+    if (isset($_SESSION['comanda'][$index])) {
+        unset($_SESSION['comanda'][$index]);
+        $_SESSION['comanda'] = array_values($_SESSION['comanda']);
+    }
 }

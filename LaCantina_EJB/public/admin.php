@@ -12,7 +12,7 @@ if (isset($_POST["logout"])) {
 }
 // Si no ha fet login, al login
 if (!isset($_SESSION["admin"])) {
-    header("Location: login.php");  
+    header("Location: login.php");
     exit;
 }
 
@@ -57,7 +57,9 @@ include __DIR__ . "/../includes/header.php";
                 </ul>
                 <p class="tiquet-total">Total: <?= htmlspecialchars(number_format($c["total"] ?? calcularTotal($linies), 2, ",", ".")) ?> €</p>
             </article>
+
         <?php endforeach; ?>
+
     <?php endif; ?>
 </section>
 <?php include __DIR__ . "/../includes/footer.php"; ?>

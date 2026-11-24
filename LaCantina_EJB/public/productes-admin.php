@@ -88,7 +88,7 @@ include __DIR__ . "/../includes/header.php";
         <input type="hidden" name="id" value="<?= (int)($editar["id"] ?? 0) ?>">
         <label>Nom <input type="text" name="nom" value="<?= htmlspecialchars($editar["nom"] ?? "") ?>" required></label>
         <label>Descripció <input type="text" name="descripcio" value="<?= htmlspecialchars($editar["descripcio"] ?? "") ?>"></label>
-        <label>Preu (€) <input type="number" step="0.01" min="0.01" name="preu" value="<?= htmlspecialchars($editar["preu"] ?? "") ?>" required></label>
+        <label>Preu (€) <input type="number" name="preu" value="<?= htmlspecialchars($editar["preu"] ?? "") ?>" required></label>
         <label>Categoria <input type="text" name="categoria" value="<?= htmlspecialchars($editar["categoria"] ?? "") ?>"></label>
         <label>Franja
             <select name="franja">

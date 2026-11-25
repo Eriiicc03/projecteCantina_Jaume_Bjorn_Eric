@@ -1,0 +1,94 @@
+@use "../abstracts" as *;
+
+// Contenidor de la pàgina de condicions
+.pagina-condicions {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 16px;
+  text-align: left; // _login.scss centra tots els <main>
+
+  h1 {
+    text-align: center;
+  }
+
+  a {
+    color: $azul;
+  }
+}
+
+.actualitzacio {
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+// Índex amb els enllaços a cada apartat
+.index-condicions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+
+  a {
+    padding: 4px 13px;
+    background: #fff;
+    border: 1px solid $texto;
+    border-radius: $radio;
+    color: $texto;
+    text-decoration: none;
+
+    &:hover {
+      background: $rosa;
+    }
+  }
+}
+
+// Cada apartat (com els tiquets d'admin)
+.pagina-condicions section {
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  background: var(--fondo);
+  border: 1px solid $texto;
+  border-left: 6px solid $verde;
+  border-radius: 8px;
+
+  h2 {
+    margin: 0 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed $gris-borde;
+    font-size: 1.2rem;
+    color: var(--texto);
+  }
+
+  h3 {
+    margin: 24px 0 8px;
+    font-size: 16px;
+  }
+
+  p {
+    margin: 0 0 8px;
+  }
+}
+
+// Taula de cookies
+.pagina-condicions table {
+  width: 100%;
+  margin: 8px 0;
+  border-collapse: collapse;
+  font-size: 13px;
+
+  th,
+  td {
+    padding: 6px 8px;
+    border: 1px solid $gris-borde;
+    text-align: left;
+  }
+
+  th {
+    background: $amarillo;
+    color: $texto;
+  }
+
+}

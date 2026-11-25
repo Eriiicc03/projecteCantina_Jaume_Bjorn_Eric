@@ -1,0 +1,131 @@
+@use "../abstracts" as *;
+
+// Contenidor de admin i finalització
+.pagina-admin,
+.pagina-finalitzacio {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 16px;
+  text-align: left;
+  display: grid;
+
+  h2 {
+    text-align: center;
+  }
+}
+
+// Capçalera amb títol i tancar sessió
+.admin-cap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.btn-sortir {
+  padding: 6px 14px;
+  background: $rojo;
+  border: 1px solid $texto;
+  border-radius: $radio;
+  color: $texto;
+  font-weight: 700;
+  text-decoration: none;
+
+  &:hover {
+    background: $rosa;
+  }
+}
+
+.sense-comandes {
+  text-align: center;
+}
+
+// Cada tiquet
+.tiquet {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: var(--fondo);
+  border: 1px solid $texto;
+  border-left: 6px solid $verde;
+  border-radius: 8px;
+
+  ul {
+    margin: 8px 0;
+    padding: 8px 0;
+    border-top: 1px dashed $gris-borde;
+    border-bottom: 1px dashed $gris-borde;
+    list-style: none;
+  }
+
+  li {
+    padding: 2px 0;
+  }
+}
+
+.tiquet-data {
+  margin: 0 0 4px;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.tiquet-client {
+  margin: 0;
+  font-weight: 700;
+}
+
+.tiquet-total {
+  margin: 0;
+  text-align: right;
+  font-weight: 700;
+}
+
+// Formulari de finalització
+.formulari-comanda {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  label {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-weight: 700;
+  }
+
+  input {
+    padding: 8px;
+    border: 1px solid $texto;
+    border-radius: 6px;
+    font: inherit;
+  }
+
+  button {
+    padding: 10px;
+    background: $rosa;
+    border: 1px solid $texto;
+    border-radius: 6px;
+    color: $texto;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+.error {
+  margin: 4px 0;
+  padding: 6px 10px;
+  background: $amarillo;
+  border-radius: 6px;
+  color: $azul;
+}
+
+// Gestió de productes
+.form-eliminar {
+  display: inline;
+  margin-left: 8px;
+
+  button {
+    font: inherit;
+    cursor: pointer;
+  }
+}

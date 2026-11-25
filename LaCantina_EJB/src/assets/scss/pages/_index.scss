@@ -1,0 +1,73 @@
+@use "../abstracts" as *;
+
+.portada_index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("/img/portada.png") center / cover no-repeat;
+  min-height: 60vh;
+  margin-top: 28px;
+
+  @include movil {
+    min-height: 25vh;
+  }
+}
+
+.btn-comanda {
+  padding: 14px 32px;
+  background: $rosa;
+  color: $texto;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: $radio;
+  border: 3px solid $azul;
+
+  &:hover {
+    background: $amarillo;
+  }
+}
+
+.ofertes-dia {
+  max-width: 1100px;
+  margin: 32px auto;
+  padding: 0 16px;
+  text-align: center;
+}
+
+// Llista de targetes: es col·loquen en files i baixen a la següent si no caben
+.ofertes-llista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+// Targeta de cada oferta
+.oferta {
+  position: relative;
+  flex: 0 0 220px; // totes les targetes fan 220px d'amplada
+  padding: 10px;
+  background: var(--caja-producto); // color segons el mode clar o fosc
+  border: 2px solid $rosa;
+  border-radius: 8px;
+  color: $texto;
+
+  img {
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  // Etiqueta "Oferta" a sobre de la imatge
+  .etiqueta {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 2px 10px;
+    background: $rosa;
+    border-radius: $radio;
+  }
+
+  .preu {
+    font-weight: 700;
+  }
+}

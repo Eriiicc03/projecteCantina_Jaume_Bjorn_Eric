@@ -1,0 +1,54 @@
+@use "../abstracts" as *;
+
+.peu {
+  margin-top: 40px;
+  padding: 20px 24px 14px;
+  background-color: var(--superficie); // Canvia de #ffffff a #1e232b
+  border-top: 1px solid var(--borde);  // Vora superior dinàmica
+  color: var(--texto);
+}
+
+.peu-contingut {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  @include movil {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.peu-marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--texto); // Substitueix el blau fix perquè es llegeixi bé en fosc
+}
+
+.peu-logo {
+  height: 40px;
+}
+
+.peu-menu {
+  display: flex;
+  gap: 32px;
+
+  a {
+    @include enlace-subrayado(3px);
+    color: var(--texto); // S'adapta automàticament al tema actiu
+  }
+}
+
+.peu-copy {
+  margin: 16px 0 0;
+  padding-top: 12px;
+  border-top: 2px solid var(--gris-borde); // Línia divisòria subtil
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--texto-suave); // To secundari suau per al copyright
+}

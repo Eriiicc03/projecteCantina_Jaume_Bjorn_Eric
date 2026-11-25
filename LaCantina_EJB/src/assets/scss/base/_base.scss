@@ -1,0 +1,29 @@
+@use "../abstracts" as *;
+
+:root {
+  --rosa: #{$rosa};
+  --amarillo: #{$amarillo};
+  --verde: #{$verde};
+  --azul: #{$azul};
+}
+// Tipografia del projecte
+@font-face {
+  font-family: "Matcha Style";
+  src: url("../../tipografia/matcha-style.ttf") format("truetype");
+  font-display: swap;
+}
+body {
+  background-color: var(--fondo);
+  color: var(--texto);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  font-family: "Matcha Style", sans-serif;
+}
+// Botons i formularis no hereten la lletra per defecte
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}

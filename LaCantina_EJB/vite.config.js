@@ -37,7 +37,7 @@ export default defineConfig({
       // Defineix el fitxer JavaScript principal del projecte.
       // A partir d'aquest fitxer, Vite detectarÃ  els mÃ²duls JS
       // importats i el Sass associat per generar els recursos.
-      input: "src/js/main.js",
+      input: "src/assets/js/main.js",
     },
   },
 });

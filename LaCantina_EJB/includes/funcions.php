@@ -1,17 +1,18 @@
 <?php
 
 /*Funcio que carregar una llista de tots els producte*/
-function carregarProductes()
+function carregarProductes(): array
 {
     /*Accedim al contingut del fitxer*/
     $myfile = file_get_contents(__DIR__ . "/../data/productes.json");
     $arry = json_decode($myfile, true); //Convertim el JSON en una arry
 
-    return $arry; //Finalment retornem el resultat que volem que es mostri.
+    return $arry ?? []; //Si el JSON no es pot llegir, retornem una array buida.
 }
 
-/*Funcio que cerca per el id que ens indiqui l'usuari*/
-function cercaPerID($id)
+/*Funcio que cerca per el id que ens indiqui l'usuari.
+  Retorna el producte (array) o null si no el troba, per això el tipus és ?array */
+function cercaPerID($id): ?array
 {
     /*Accedim al contingut del fitxer*/
     $myfile = file_get_contents(__DIR__ . "/../data/productes.json");
@@ -22,20 +23,9 @@ function cercaPerID($id)
             return $producte; // retornarem el producte
         }
     }
-    echo ("El producte no hi es a la llista "); //Si no troba es ho indicara.
-    return 0; // Retornara un 0
+    return null; // Si no el troba, retornem null
 
 }
-
-/*Uso de la funcion por id:
-$producte = cercaPerID(3);
-
-if ($producte != null) {
-    print_r($producte);
-} else {
-    echo "Producte no trobat";
-}
-*/
 
 function calcularTotal(array $ticket): float
 {
@@ -65,14 +55,33 @@ function desarComanda(array $dades): bool
     return $resultat !== false;
 }
 
-function afegirAComanda($IdProducte)
+function preuFinal(array $producte): float
+{
+    // Si el producte no està en oferta, es cobra el preu normal
+    if (empty($producte['oferta'])) {
+        return $producte['preu'];
+    }
+
+    // Si està en oferta i té el camp "preu_oferta" al JSON, es cobra aquest preu
+    if (!empty($producte['preu_oferta'])) {
+        return $producte['preu_oferta'];
+    }
+
+    // Si està en oferta però no té "preu_oferta", apliquem un 20% de descompte.
+    // Aquest return és obligatori: amb ": float" la funció sempre ha de retornar un número.
+    return $producte['preu'] * 0.8;
+}
+
+function afegirAComanda($IdProducte): void
 {
     $producte = cercaPerID($IdProducte);
+    if ($producte === null) return; // Si el producte no existeix, no afegim res
+    $producte['preu'] = preuFinal($producte);
 
     $_SESSION['comanda'][] = $producte;
 }
 
-function buidarComanda()
+function buidarComanda(): void
 {
     unset($_SESSION['comanda']);
 }

@@ -22,6 +22,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $productes = array_values(array_filter($productes, fn($p) => $p["id"] != $id));
     }
 
+    if ($accio === "oferta") {
+        foreach ($productes as $i => $p) {
+            if ($p["id"] == $id) $productes[$i]["oferta"] = empty($p["oferta"]);
+        }
+    }
+
     // Afegir o modificar producte
     if ($accio === "desar") {
         $dades = [
@@ -32,12 +38,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             "franja" => $_POST["franja"] ?? "",
             "imagen" => trim($_POST["imagen"] ?? ""),
             "oferta" => isset($_POST["oferta"]),
+            "preu_oferta" => (float)str_replace(",", ".", $_POST["preu_oferta"] ?? "0"),
         ];
+
+        if ($dades["preu_oferta"] <= 0) {
+            $dades["preu_oferta"] = round($dades["preu"] * 0.8, 2);
+        }
 
         // Validem les dades
         if ($dades["nom"] === "") $errors[] = "El nom és obligatori.";
         if ($dades["preu"] <= 0) $errors[] = "El preu ha de ser més gran que 0.";
         if (!in_array($dades["franja"], $franges)) $errors[] = "La franja no és vàlida.";
+        if ($dades["preu_oferta"] >= $dades["preu"]) $errors[] = "El preu d'oferta ha de ser més baix que el preu normal.";
 
         if (empty($errors)) {
             if ($id > 0) {
@@ -99,6 +111,7 @@ include __DIR__ . "/../includes/header.php";
         </label>
         <label>Imatge (ruta) <input type="text" name="imagen" placeholder="img/productesIMG/..." value="<?= htmlspecialchars($editar["imagen"] ?? "") ?>"></label>
         <label><input type="checkbox" name="oferta" <?= !empty($editar["oferta"]) ? "checked" : "" ?>> En oferta</label>
+        <label>Preu d'oferta (€) <input type="number" step="0.01" min="0" name="preu_oferta" placeholder="Buit = 20% de descompte" value="<?= !empty($editar["preu_oferta"]) ? $editar["preu_oferta"] : "" ?>"></label>
         <button type="submit"><?= $editar ? "Desar canvis" : "Afegir" ?></button>
         <?php if ($editar): ?><a href="productes-admin.php" class="btn-sortir">Cancel·lar</a><?php endif; ?>
     </form>
@@ -107,8 +120,13 @@ include __DIR__ . "/../includes/header.php";
     <?php foreach ($productes as $p): ?>
         <article class="tiquet">
             <p class="tiquet-client"><?= htmlspecialchars($p["nom"]) ?> · <?= number_format($p["preu"], 2, ",", ".") ?> €</p>
-            <p class="tiquet-data"><?= htmlspecialchars($p["categoria"]) ?> · <?= htmlspecialchars($p["franja"]) ?></p>
+            <p class="tiquet-data"><?= htmlspecialchars($p["categoria"]) ?> · <?= htmlspecialchars($p["franja"]) ?><?= !empty($p["oferta"]) ? " · En oferta a " . number_format(preuFinal($p), 2, ",", ".") . " €" : "" ?></p>
             <a href="productes-admin.php?editar=<?= (int)$p["id"] ?>" class="btn-sortir">Modificar</a>
+            <form method="post" class="form-eliminar">
+                <input type="hidden" name="accio" value="oferta">
+                <input type="hidden" name="id" value="<?= (int)$p["id"] ?>">
+                <button class="btn-sortir"><?= !empty($p["oferta"]) ? "Treure oferta" : "Posar en oferta" ?></button>
+            </form>
             <form method="post" class="form-eliminar" onsubmit="return confirm('Segur que vols eliminar-lo?')">
                 <input type="hidden" name="accio" value="eliminar">
                 <input type="hidden" name="id" value="<?= (int)$p["id"] ?>">

@@ -26,7 +26,6 @@ if (isset($_POST['eliminarProducte'])) {
     exit;
 }
 
-
 $productes = carregarProductes();
 $total = calcularTotal($_SESSION['comanda'] ?? []);
 
@@ -66,7 +65,7 @@ include __DIR__ . '/../includes/header.php';
                         <p class="nom"><?= htmlspecialchars($producte['nom']) ?></p>
 
                         <div class="peu-producte">
-                            <p class="preu"><?= number_format($producte['preu'], 2, ',', '.') ?> €</p>
+                            <p class="preu"><?= number_format(preuFinal($producte), 2, ',', '.') ?> €</p>
                             <form method="post">
                                 <input hidden name="idProducte" value="<?= $producte['id'] ?>">
                                 <button class="btn-afegir">+ Afegir</button>

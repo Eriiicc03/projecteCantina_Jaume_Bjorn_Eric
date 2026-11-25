@@ -7,7 +7,8 @@
         "categoria": "Brioixeria",
         "franja": "esmorzar",
         "imagen": "img/productesIMG/croissant.jpg",
-        "oferta": true
+        "oferta": false,
+        "preu_oferta": 1.2
     },
     {
         "id": 2,
@@ -17,7 +18,8 @@
         "categoria": "Begudes",
         "franja": "esmorzar",
         "imagen": "img/productesIMG/cafe.jpg",
-        "oferta": false
+        "oferta": false,
+        "preu_oferta": 1.2
     },
     {
         "id": 3,
@@ -27,7 +29,8 @@
         "categoria": "Entrepans",
         "franja": "esmorzar",
         "imagen": "img/productesIMG/entrepa-pernil.jpg",
-        "oferta": true
+        "oferta": true,
+        "preu_oferta": 2.8
     },
     {
         "id": 4,
@@ -37,7 +40,8 @@
         "categoria": "Torrades",
         "franja": "esmorzar",
         "imagen": "img/productesIMG/torrades-alvocat.jpg",
-        "oferta": false
+        "oferta": false,
+        "preu_oferta": 2.2
     },
     {
         "id": 5,
@@ -47,7 +51,8 @@
         "categoria": "Begudes",
         "franja": "esmorzar",
         "imagen": "img/productesIMG/suc-taronja.jpg",
-        "oferta": false
+        "oferta": false,
+        "preu_oferta": 2
     },
     {
         "id": 7,
@@ -57,7 +62,8 @@
         "categoria": "Postres",
         "franja": "dinar",
         "imagen": "img/productesIMG/pizza-nutella.jpg",
-        "oferta": false
+        "oferta": false,
+        "preu_oferta": 5.2
     },
     {
         "id": 8,
@@ -67,7 +73,8 @@
         "categoria": "Amanides",
         "franja": "dinar",
         "imagen": "img/productesIMG/amanida-cesar.jpg",
-        "oferta": false
+        "oferta": false,
+        "preu_oferta": 6.2
     },
     {
         "id": 9,
@@ -77,7 +84,8 @@
         "categoria": "Pasta",
         "franja": "dinar",
         "imagen": "img/productesIMG/macarrons.jpg",
-        "oferta": true
+        "oferta": true,
+        "preu_oferta": 7.1
     },
     {
         "id": 10,
@@ -87,7 +95,8 @@
         "categoria": "Plats principals",
         "franja": "dinar",
         "imagen": "img/productesIMG/nuggets.jpg",
-        "oferta": false
+        "oferta": false,
+        "preu_oferta": 6
     },
     {
         "id": 11,
@@ -97,7 +106,8 @@
         "categoria": "Salats",
         "franja": "berenar",
         "imagen": "img/productesIMG/crep-salada.jpg",
-        "oferta": true
+        "oferta": true,
+        "preu_oferta": 3.6
     },
     {
         "id": 12,
@@ -107,7 +117,8 @@
         "categoria": "Begudes",
         "franja": "berenar",
         "imagen": "img/productesIMG/smoothie.jpg",
-        "oferta": false
+        "oferta": false,
+        "preu_oferta": 3
     },
     {
         "id": 13,
@@ -117,7 +128,8 @@
         "categoria": "Brioixeria",
         "franja": "berenar",
         "imagen": "img/productesIMG/donut.jpg",
-        "oferta": false
+        "oferta": false,
+        "preu_oferta": 1.7
     },
     {
         "id": 14,
@@ -127,7 +139,8 @@
         "categoria": "Gelats",
         "franja": "berenar",
         "imagen": "img/productesIMG/gelat-vainilla.jpg",
-        "oferta": true
+        "oferta": true,
+        "preu_oferta": 2.8
     },
     {
         "id": 15,
@@ -137,6 +150,7 @@
         "categoria": "Pasta",
         "franja": "dinar",
         "imagen": "img/productesIMG/canelons.jpg",
-        "oferta": false
+        "oferta": false,
+        "preu_oferta": 7
     }
 ]
